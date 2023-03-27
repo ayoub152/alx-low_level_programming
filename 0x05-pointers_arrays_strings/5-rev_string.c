@@ -1,33 +1,24 @@
 #include "main.h"
 
 /**
-  * rev_string - Reverses a string
-  * @s: The string to be modified
-  *
-  * Return: void
-  */
-void rev_string(char *s)
+ * char *_strcpy - a function that copies the string pointed to by src
+ * @dest: copy to
+ * @src: copy from
+ * Return: string
+ */
+char *_strcpy(char *dest, char *src)
 {
-	int i, c, k;
-	char *a, aux;
+	int l = 0;
+	int x = 0;
 
-	a = s;
-
-	while (s[c] != '\0')
+	while (*(src + l) != '\0')
 	{
-		c++;
+		l++;
 	}
-
-	for (k = 1; k < c; k++)
+	for ( ; x < l ; x++)
 	{
-		a++;
+		dest[x] = src[x];
 	}
-
-	for (i = 0; i < (c / 2); i++)
-	{
-		aux = s[i];
-		s[i] = *a;
-		*a = aux;
-		a--;
-	}
+	dest[l] = '\0';
+	return (dest);
 }
