@@ -1,32 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
 /**
- * main - multiplies two numbers
+ * main - make sum of positive num
+ * @argc:an integer variable
+ * @argv: an array of char pointer
  *
- * @argc: is an integer variable that represents
- * the number of arguments passed to the program
- *
- * @argv: is an array of character pointers
- *
- * Return: if error 1 , if scc 0
- *
+ * Return: 1 if is not digt , 0 if scc
  */
 int main(int argc, char *argv[])
 {
-	int i, multip = 1;
+	int i, add = 0;
 
-	if (argc > 2)
+	if (argc == 1)
 	{
-		for (i = 1; i < argc; i++)
+		printf("0\n");
+		return (0);
+	}
+
+	for (i = 1; i < argc; i++)
+	{
+		int j = 0;
+
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			multip *= atoi(argv[i]);
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-			printf("%d\n", multip);
+		add += atoi(argv[i]);
 	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
+	printf("%d\n", add);
 	return (0);
+
 }
